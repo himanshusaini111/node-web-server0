@@ -32,10 +32,15 @@ hbs.registerHelper('screamIt', (text) => {
     return text.toUpperCase();
 });
 
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects'
+    });
+});
+
 app.get('/', (req, res) => {
     res.render('home.hbs',{
         pageTitle: 'Home',
-        currentYear: new Date().getFullYear(),
         welcomeMessage: 'Hi, Welcome to my Website. I am Himanshu and I am gonna be your superHERO'
     });
 });
@@ -43,7 +48,6 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page',
-        currentYear: new Date().getFullYear()
     });
 });
 
@@ -53,6 +57,8 @@ app.get('/bad', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`server is up on port ${port}`);
-});
+app.listen(3000);
+
+// app.listen(port, () => {
+//     console.log(`server is up on port ${port}`);
+// });
